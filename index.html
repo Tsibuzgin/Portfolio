@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vladymyr Tsybuzghin Implementation of the principle of iterative weather forecast (Front+Back 2022)</title>
+</head>
+
+<body>
+    <div class="content">
+        <!--header with search box-->
+        <header class="head-bar">
+            <form class="head-form">
+                <div class="weather-check">
+                    <p>
+                        <span class="check">
+                    <input id="elastic" type="text" name="search-button" placeholder="Enter country abbreviation here and press search" class="search-field" autocomplete="off">
+                    <label for="s-button" class="btn-search">
+                    </label>
+                    <input value="" id="s-button" class="checkboxstyle"> 
+                        </span>
+                    </p>
+                    <div class="search-notifications">
+                        <p class="search-notifications-text"></p>
+                    </div>
+                </div>
+                <div class="weather-screen">
+                    <div class="weather-icon">
+                    </div>
+                    <div class="weather-text">
+                        <p class="temperature"></p>
+                        <p class="precipitation"></p>
+                    </div>
+                    <div class="city-and-date">
+                        <p class="city">Town, Country</p>
+                        <p class="date">Day Month Year</p>
+                    </div>
+                    <hr>
+                    <div class="min-temp-screen">
+                        <p class="min-temp-text">Min</p>
+                        <p class="min-temp">-33&#176;C</p>
+                    </div>
+                    <div class="max-temp-screen">
+                        <p class="max-temp-text">Max</p>
+                        <p class="max-temp">+33&#176;C</p>
+                    </div>
+                </div>
+            </form>
+        </header>
+        <!--section with a choice of cities-->
+        <section class="main-sect">
+            <div class="main-sect-popular-heading">
+                <h1 class="popular-heading">
+                    Check the weather in most popular cities in the world
+                </h1>
+            </div>
+            <div class="main-sect-city-row">
+                <div class="city-row">
+                    <div class="ny">
+                        <label for="ny-btn" class="city-row-btn" onclick="displayWeatherNY()">
+                    <span class="main-sect-pop-hdg-text">
+                        New York
+                    </span>
+                </label>
+                        <input type="button" id="ny-btn" value="submit" class="city-input">
+                    </div>
+                    <div class="lon">
+                        <label for="lon-btn" class="city-row-btn" onclick="displayWeatherLon()">
+                    <span class="main-sect-pop-hdg-text">
+                        London
+                    </span>
+                </label>
+                        <input type="button" id="lon-btn" value="submit" class="city-input">
+                    </div>
+                    <div class="dub">
+                        <label for="dub-btn" class="city-row-btn" onclick="displayWeatherDub()">
+                    <span class="main-sect-pop-hdg-text">
+                        Dubai
+                    </span>
+                </label>
+                        <input type="button" id="dub-btn" value="submit" class="city-input">
+                    </div>
+                    <div class="par">
+                        <label for="par-btn" class="city-row-btn" onclick="displayWeatherPar()">
+                    <span class="main-sect-pop-hdg-text">
+                        Paris
+                    </span>
+                </label>
+                        <input type="button" id="par-btn" value="submit" class="city-input">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--FAQ section-->
+        <section class="faq-sect">
+            <div class="faq-sect-heading">
+                <h1 class="heading">
+                    Frequently Asked Questions
+                </h1>
+            </div>
+            <div class="questions-column">
+                <div class="accordion">
+                    <div class="accordion-item">
+                      <div class="accordion-header">
+                        <div class="accordion-button collapsed">
+                            <p>Question 1</p>
+                            <button class="arrow-btn">
+                                <img src="img/arrow-down.svg" alt="arrow-down" class="arrow-img">
+                            </button>
+                        </div>
+                    </div>
+                      <div  class="accordion-collapse collapse"  data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <div class="accordion-header">
+                        <div role="contentinfo" class="accordion-button collapsed" data-bs-toggle="collapse"  aria-expanded="false" >
+                          <p>Question 2</p>
+                          <button class="arrow-btn">
+                          <img src="img/arrow-down.svg" alt="arrow-down" class="arrow-img">
+                            </button>
+                        </div>
+                    </div>
+                      <div  class="accordion-collapse collapse"  data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <div class="accordion-header">
+                        <div role="contentinfo" class="accordion-button collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                          <p>Question 3</p>
+                          <button class="arrow-btn">
+                          <img src="img/arrow-down.svg" alt="arrow-down" class="arrow-img">
+                            </button>
+                        </div>
+                    </div>
+                      <div class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="headingFour">
+                          <div role="contentinfo" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <p>Question 4</p>
+                            <button class="arrow-btn">
+                            <img src="img/arrow-down.svg" alt="arrow-down" class="arrow-img">
+                            </button>
+                          </div>
+                        </div>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>Vladymyr Tsybuzghin - 2022</p>
+    </footer>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
